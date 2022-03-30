@@ -15,6 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 URL::forceScheme('https');
 
+Route::get('/db-migrate', function () {
+    Artisan::call('migrate');
+    echo Artisan::output();
+});
+
+Route::get('/db-test', function () {
+    try {         
+         echo \DB::connection()->getDatabaseName();     
+    } catch (\Exception $e) {
+          echo 'None';
+    }
+});
+
+
 Route::get('/', function () {
     return view('welcome');
 });
