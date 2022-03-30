@@ -5,7 +5,7 @@ use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\ManufacturerController;
 use App\Http\Controllers\EquipmentinfoController;
 use App\Http\Controllers\PurchaseinfoController;
-use App\Http\Controllers\NoteshistoryController
+use App\Http\Controllers\NoteshistoryController;
 
 /*
 |--------------------------------------------------------------------------
