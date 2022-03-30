@@ -16,6 +16,11 @@ return new class extends Migration
         Schema::create('equipmentinfo', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
+            $table->string('model_year');
+            $table->string('speed');
+            $table->foreignId('manu_id')->constrained('manuinfo');
+            
         });
     }
 
