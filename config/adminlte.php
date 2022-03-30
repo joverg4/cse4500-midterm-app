@@ -230,8 +230,8 @@ return [
             'text' => 'search',
         ],
         [
-            'text' => 'Manage invoices',
-            'url'  => 'invoices',
+            'text' => 'Manage Purchase Infos',
+            'url'  => 'purchaseinfo',
             'icon' => 'fas fa-fw fa-file',
         ],
         [
