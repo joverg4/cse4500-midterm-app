@@ -230,17 +230,17 @@ return [
             'text' => 'search',
         ],
         [
-            'text' => 'Manage Purchase Infos',
+            'text' => 'Purchase Information',
             'url'  => 'purchaseinfo',
             'icon' => 'fas fa-fw fa-file',
         ],
         [
-            'text' => 'Manage Customers',
+            'text' => 'Customers',
             'url'  => 'customers',
             'icon' => 'fas fa-fw fa-file',
         ],
         [         
-            'text' => 'Manage Equipment',
+            'text' => 'Equipment',
             'url'  => 'equipmentinfo',
             'icon' => 'fas fa-fw fa-file',
         ],
