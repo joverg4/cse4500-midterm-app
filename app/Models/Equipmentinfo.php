@@ -17,7 +17,7 @@ class Equipmentinfo extends Model
         return $this->hasMany(Noteshistory::class);
     }
 
-    public function manuinfo()
+    public function manu()
     {
         return $this->belongsTo(Manuinfo::class);
     }

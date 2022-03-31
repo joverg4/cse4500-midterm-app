@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('model_year');
             $table->string('speed');
+            $table->enum('category', ['desktop', 'laptop', 'tablet']);
             $table->foreignId('manu_id')->constrained('manuinfo');
             
         });

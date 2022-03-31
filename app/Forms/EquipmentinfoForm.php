@@ -2,60 +2,44 @@
 
 namespace App\Forms;
 
-
 use Kris\LaravelFormBuilder\Form;
 use Kris\LaravelFormBuilder\Field;
 
-use App\Models\Equipmentinfo;
-use App\Models\Customers;
-
-function getEquipmentinfo() {
+function getManufacuters() {
     $retVal = array();
-    $equipmentinfo = Equipmentinfo::where('id' ,'>' ,0)->get();
-    foreach($equipmentinfo as $equipmentinfo) {
-        $retVal[strval($equipmentinfo["id"])] = strval($equipmentinfo["name"]);
+    $manufacuters = Manufacturer::where('id' ,'>' ,0)->get();
+    foreach($manufacuters as $manufacuter) {
+        $retVal[strval($manufacuter["id"])] = strval($manufacuter["name"]);
     }
     return $retVal;
 }
 
-function getCustomerid() {
-    $retVal = array();
-    $customers = Customers::where('id' ,'>' ,0)->get();
-    foreach($customers as $customers) {
-        $retVal[strval($customers["id"])] = strval($customers["name"]);
-    }
-    return $retVal;
-}
-
-class PurchaseinfoForm extends Form
+class EquipmentinfoForm extends Form
 {
     public function buildForm()
     {
         $this
-        ->add('invoice_num', Field::TEXT, [
+        ->add('name', Field::TEXT, [
             'rules' => 'required',
-            'label' => 'Invoice Number'
+            'label' => 'Full Name'
         ])
-            ->add('price', Field::TEXT, [
+            ->add('model_year', Field::TEXT, [
                 'rules' => 'required',
-                'label' => 'Price'
+                'label' => 'Model Year'
             ])
-            ->add('purchase_date', Field::TEXT, [
+            ->add('speed', Field::TEXT, [
                 'rules' => 'required',
-                'label' => 'Email'
+                'label' => 'Speed'
             ])
-            ->add('equipment_id', Field::SELECT, [
+            ->add('manu_id', Field::NUMBER, [
                 'rules' => 'required',
-                'label' => 'Equipment ID',
-                'choices' => getEquipmentinfo(),
-                'empty_value' => '=== Select Equipment Info ==='
+                'label' => 'Manufactuer ID'
             ])
-            ->add('customer_id', Field::SELECT, [
+            ->add('category', Field::SELECT, [
                 'rules' => 'required',
-                'label' => 'Customer ID',
-                'choices' => getCustomerid(),
-                'empty_value' => '=== Select Customer ID ==='
-
+                'label' => 'Category',
+                'choices' => ['desktop' => "Desktop", 'laptop' => "Laptop", 'tablet' => 'Tablet'],
+                'empty_value' => '=== Select Category ==='
             ])
             ->add('submit', 'submit',[
                 'label' => 'Submit'
