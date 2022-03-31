@@ -3,16 +3,6 @@
 namespace App\Forms;
 
 use Kris\LaravelFormBuilder\Form;
-
-class EquipmentinfoForm extends Form
-{
-    public function buildForm()
-    {
-        <?php
-
-namespace App\Forms;
-
-use Kris\LaravelFormBuilder\Form;
 use Kris\LaravelFormBuilder\Field;
 
 function getManufacuters() {
@@ -54,7 +44,5 @@ class EquipmentinfoForm extends Form
             ->add('submit', 'submit',[
                 'label' => 'Submit'
             ]);
-    }
-}
     }
 }
