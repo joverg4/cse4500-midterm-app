@@ -5,7 +5,7 @@ use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\ManufacturerController;
 use App\Http\Controllers\EquipmentinfoController;
 use App\Http\Controllers\PurchaseinfoController;
-use App\Http\Controllers\NoteshistoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +24,7 @@ Route::resource('/customers', CustomersController::class);
 Route::resource('/manuinfo', ManufacturerController::class);
 Route::resource('/equipmentinfo', EquipmentinfoController::class);
 Route::resource('/purchaseinfo', PurchaseinfoController::class);
-Route::resource('/note', NoteshistoryController::class);
+
 
 Route::get('/db-migrate', function () {
     Artisan::call('migrate');
