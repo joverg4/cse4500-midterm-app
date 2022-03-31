@@ -2,44 +2,60 @@
 
 namespace App\Forms;
 
+
 use Kris\LaravelFormBuilder\Form;
 use Kris\LaravelFormBuilder\Field;
 
-function getManufacuters() {
+use App\Models\Equipmentinfo;
+use App\Models\Customers;
+
+function getEquipmentinfo() {
     $retVal = array();
-    $manufacuters = Manufacturer::where('id' ,'>' ,0)->get();
-    foreach($manufacuters as $manufacuter) {
-        $retVal[strval($manufacuter["id"])] = strval($manufacuter["name"]);
+    $equipmentinfo = Equipmentinfo::where('id' ,'>' ,0)->get();
+    foreach($equipmentinfo as $equipmentinfo) {
+        $retVal[strval($equipmentinfo["id"])] = strval($equipmentinfo["name"]);
     }
     return $retVal;
 }
 
-class EquipmentinfoForm extends Form
+function getCustomerid() {
+    $retVal = array();
+    $customers = Customers::where('id' ,'>' ,0)->get();
+    foreach($customers as $customers) {
+        $retVal[strval($customers["id"])] = strval($customers["name"]);
+    }
+    return $retVal;
+}
+
+class PurchaseinfoForm extends Form
 {
     public function buildForm()
     {
         $this
-        ->add('name', Field::TEXT, [
+        ->add('invoice_num', Field::TEXT, [
             'rules' => 'required',
-            'label' => 'Full Name'
+            'label' => 'Invoice Number'
         ])
-            ->add('model_year', Field::TEXT, [
+            ->add('price', Field::TEXT, [
                 'rules' => 'required',
-                'label' => 'Model Year'
+                'label' => 'Price'
             ])
-            ->add('speed', Field::TEXT, [
+            ->add('purchase_date', Field::TEXT, [
                 'rules' => 'required',
-                'label' => 'Speed'
+                'label' => 'Email'
             ])
-            ->add('manu_id', Field::NUMBER, [
+            ->add('equipment_id', Field::SELECT, [
                 'rules' => 'required',
-                'label' => 'Manufactuer ID'
+                'label' => 'Equipment ID',
+                'choices' => getEquipmentinfo(),
+                'empty_value' => '=== Select Equipment Info ==='
             ])
-            ->add('category', Field::SELECT, [
+            ->add('customer_id', Field::SELECT, [
                 'rules' => 'required',
-                'label' => 'Category',
-                'choices' => ['desktop' => "Desktop", 'laptop' => "Laptop", 'tablet' => 'Tablet'],
-                'empty_value' => '=== Select Category ==='
+                'label' => 'Customer ID',
+                'choices' => getCustomerid(),
+                'empty_value' => '=== Select Customer ID ==='
+
             ])
             ->add('submit', 'submit',[
                 'label' => 'Submit'
