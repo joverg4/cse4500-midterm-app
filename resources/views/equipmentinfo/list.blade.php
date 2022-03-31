@@ -27,7 +27,7 @@
           <td>{{ ucwords($equipment->category) }}</td>
           <td>{{ $equipment->name }}</td>
 
-          <td><a class="btn btn-default btn-sm" href="{{ route('equipmentinfo.show',['equipment'=>$equipment->id]) }}">View</a></td>
+          <td><a class="btn btn-default btn-sm" href="{{ route('equipmentinfo.show',['equipmentinfo'=>$equipment->id]) }}">View</a></td>
         </tr>
         @endforeach
       </tbody>
